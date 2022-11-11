@@ -1,6 +1,23 @@
+using Microsoft.EntityFrameworkCore;
+using P2s.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
+
+
+
 // Add services to the container.
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+
+builder.Services.AddDbContext<DataContext>(options=>options.UseSqlServer(connectionString));
+
+builder.Services AddTransiet<SeddDb>();
+
+
+
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

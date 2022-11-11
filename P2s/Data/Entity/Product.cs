@@ -7,13 +7,15 @@ namespace P2s.Data.Entity
     {
 
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage ="El campo {0} es requerido...") ]
         [Display(Name = "Producto")]
-        
+        [MaxLength(150,ErrorMessage = "El campo {0} su maximo de caracteres es de {1}")]
+
         public string Name { get; set; } = null!;
 
 
         [Display(Name = "Precio")]
+
         [DisplayFormat(DataFormatString ="(0:C2)", ApplyFormatInEditMode =false) ]
         public decimal Price { get; set; }
 
@@ -21,16 +23,16 @@ namespace P2s.Data.Entity
         [Display(Name = "Imagen")]
         public string ImageUrl { get; set; } = null!;
        
-        public DateTime LastPurchase { get; set; }
+        public DateTime? LastPurchase { get; set; }
      
-        public DateTime LastSale { get; set; }
+        public DateTime? LastSale { get; set; }
 
         [Display(Name = "Activo")]
         [Required]
         public bool IsActive { set; get; }
 
         [Display(Name = "Stock en almacenes")]
-        [Required]
+        [Required(ErrorMessage = "El campo {0} es requerido...")]
         [DisplayFormat(DataFormatString = "(0:C2)", ApplyFormatInEditMode = false)]
         public double Stock { get; set; }
     }
