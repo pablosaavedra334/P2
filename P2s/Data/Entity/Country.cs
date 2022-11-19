@@ -1,9 +1,10 @@
 ﻿
+using P2s.Data.Entidad;
 using System.ComponentModel.DataAnnotations;
 
 namespace P2s.Data.Entity
 {
-    public class Country
+    public class Country :IEntity
     {
 
         public int Id { set; get; }

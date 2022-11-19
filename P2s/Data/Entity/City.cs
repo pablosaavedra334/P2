@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using P2s.Data.Entidad;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
 namespace P2s.Data.Entity
 {
-    public class City
+    public class City : IEntity
     {
 
         public int Id { set; get; }

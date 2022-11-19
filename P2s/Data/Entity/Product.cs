@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using P2s.Data.Entidad;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
 namespace P2s.Data.Entity
 {
-    public class Product
+    public class Product:IEntity
     {
 
         public int Id { get; set; }
@@ -35,5 +36,7 @@ namespace P2s.Data.Entity
         [Required(ErrorMessage = "El campo {0} es requerido...")]
         [DisplayFormat(DataFormatString = "(0:C2)", ApplyFormatInEditMode = false)]
         public double Stock { get; set; }
+
+        public Usser User { set; get; }
     }
 }

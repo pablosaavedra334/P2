@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using P2s.Data.Entity;
 
 namespace P2s.Data
 {
-    public class DataContext : DbContext
+    public class DataContext : IdentityDbContext<Usser> //se camcio Dbcontexte por IdentityDbContext<Usser>
 
     {
 
@@ -18,6 +19,8 @@ namespace P2s.Data
 
 
         }
+
+        
 
         
     }

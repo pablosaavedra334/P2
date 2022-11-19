@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using P2s.Data;
+using P2s.Data.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +14,12 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<DataContext>(options=>options.UseSqlServer(connectionString));
 
-builder.Services AddTransiet<SeddDb>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICityRepository, CityRepository>();      // *agreagar 
+builder.Services.AddScoped<ICountryRepository, CountryRepository>();
+//instanciar los repositorios
+
+//builder.Services AddTransiet<SeddDb>();
 
 
 
